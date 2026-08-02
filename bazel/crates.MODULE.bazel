@@ -1,0 +1,10 @@
+crates = use_extension("@rules_rust//crate_universe:extensions.bzl", "crate")
+
+crates.spec(
+    package = "mimalloc",
+    version = "0.1.52",
+    features = ["override"],
+)
+
+crates.from_specs()
+use_repo(crates, "crates")
