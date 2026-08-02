@@ -1,0 +1,8 @@
+load("@rules_rust//rust:defs.bzl", "rust_library")
+
+rust_library(
+    name = "glfw-sys",
+    srcs = ["lib.rs"],
+    edition = "2018",
+    visibility = ["@ink//crates:__subpackages__"]
+)

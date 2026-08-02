@@ -5,6 +5,7 @@ rust_binary(
     srcs = ["ink.rs"],
     edition = "2024",
     deps = [
+        "@ink//crates/glfw-sys",
         "@crates//:mimalloc"
     ],
     visibility = ["@ink//:__pkg__"]
