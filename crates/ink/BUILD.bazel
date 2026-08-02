@@ -2,11 +2,11 @@ load("@rules_rust//rust:defs.bzl", "rust_binary")
 
 rust_binary(
     name = "ink",
-    srcs = ["ink.rs"],
-    edition = "2024",
+    srcs = ["src/ink.rs"],
     deps = [
-        "@ink//crates/glfw-sys",
+        "@ink//crates/glfw-sys:glfw_sys",
         "@crates//:mimalloc"
     ],
+    edition = "2024",
     visibility = ["@ink//:__pkg__"]
 )

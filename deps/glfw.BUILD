@@ -1,3 +1,4 @@
+load("@rules_cc//cc:defs.bzl", "cc_library")
 load("@rules_foreign_cc//foreign_cc:defs.bzl", "cmake")
 
 filegroup(
@@ -5,12 +6,25 @@ filegroup(
     srcs = glob(["**"]),
 )
 
+filegroup(
+    name = "glfw_header_file",
+    srcs = ["include/GLFW/glfw3.h"],
+    visibility = ["//visibility:public"]
+)
+
+cc_library(
+    name = "glfw_header",
+    hdrs = [":glfw_header_file"],
+    includes = ["include"],
+    visibility = ["//visibility:public"],
+)
+
 UNIX_DEPS = select({
     "@platforms//os:windows": [],
     "@platforms//os:macos": [],
     "//conditions:default": [
-        "@wayland//:scanner"
-        # TODO: Decide whether to vendor xkbcommon and libffi too
+        "@wayland//:scanner",
+        # TODO: Decide whether to vendor xkbcommon
     ]
 })
 
@@ -33,7 +47,7 @@ UNIX_LINKOPTS = select({
 })
 
 cmake(
-    name = "lib",
+    name = "glfw",
     lib_source = ":glfw_srcs",
     cache_entries = {
         "BUILD_SHARED_LIBS": "ON",
