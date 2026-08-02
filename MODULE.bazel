@@ -1,0 +1,17 @@
+module(name = "ink")
+
+bazel_dep(name = "rules_rust", version = "0.71.3")
+
+rust = use_extension("@rules_rust//rust:extensions.bzl", "rust")
+rust.toolchain(versions = ["nightly/2026-08-01"])
+
+crates = use_extension("@rules_rust//crate_universe:extensions.bzl", "crate")
+
+crates.spec(
+    package = "mimalloc",
+    version = "0.1.52",
+    features = ["override"],
+)
+
+crates.from_specs()
+use_repo(crates, "crates")

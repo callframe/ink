@@ -1,0 +1,4 @@
+alias(
+    name = "ink",
+    actual = "@ink//crates/ink"
+)

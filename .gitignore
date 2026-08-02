@@ -1,0 +1,5 @@
+target/
+.rules_rust_analyzer/
+
+/bazel-*
+rust-project.json
