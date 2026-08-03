@@ -1,5 +1,9 @@
-use glfw_sys::{GLFW_TRUE, glfwInit};
+use glfw_sys::{GLFW_TRUE, glfwInit, glfwTerminate};
 use mimalloc::MiMalloc;
+
+use crate::editor::Editor;
+
+mod editor;
 
 #[global_allocator]
 static ALLOC: MiMalloc = MiMalloc;
@@ -9,5 +13,12 @@ fn main() {
         panic!("Failed to initialize GLFW");
     }
 
-    unsafe { glfw_sys::glfwTerminate() };
+    let editor = match Editor::new() {
+        Ok(editor) => editor,
+        Err(e) => panic!("Failed to create editor: {:?}", e),
+    };
+
+    editor.run();
+
+    unsafe { glfwTerminate() };
 }

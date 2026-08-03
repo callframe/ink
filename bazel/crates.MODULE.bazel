@@ -6,5 +6,19 @@ crates.spec(
     features = ["override"],
 )
 
+crates.spec(
+    package = "hecs",
+    version = "0.11.1",
+    default_features = False,
+    features = ["std"],
+)
+
+crates.spec(
+    package = "glam",
+    version = "0.33.2",
+    default_features = False,
+    features = ["std", "all-types"]
+)
+
 crates.from_specs()
 use_repo(crates, "crates")
