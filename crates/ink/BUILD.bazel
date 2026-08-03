@@ -5,6 +5,7 @@ rust_binary(
     srcs = [
         "src/ink.rs",
         "src/editor.rs",
+        "src/handles.rs",
     ],
     deps = [
         "@ink//crates/glfw-sys:glfw_sys",
