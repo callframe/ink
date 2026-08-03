@@ -54,7 +54,6 @@ impl Editor
         let _ = world.spawn((WindowHandle(window_ptr),));
 
         let editor = Box::new(Self { world: World::new() });
-
         let editor_ptr = editor.as_ref() as *const Self as *mut Self;
 
         unsafe { glfwSetWindowUserPointer(window_ptr, editor_ptr as *mut ffi::c_void) };
