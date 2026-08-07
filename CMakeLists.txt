@@ -11,10 +11,19 @@ set(INK_COPTS
     $<$<CXX_COMPILER_ID:MSVC>:/W4>
 
     $<$<AND:$<CONFIG:Debug>,$<CXX_COMPILER_ID:GNU,Clang>>:-g>
-    $<$<AND:$<CONFIG:Debug>,$<CXX_COMPILER_ID:MSVC>>:/Fs>
+    $<$<AND:$<CONFIG:Debug>,$<CXX_COMPILER_ID:MSVC>>:/FS>
 )
 
 set(INK_DIR "${CMAKE_CURRENT_SOURCE_DIR}")
+list(APPEND CMAKE_MODULE_PATH "${INK_DIR}/cmake")
+
+include(InkHelpers)
+
 set(INK_SRC_DIR "${INK_DIR}/ink")
+set(INK_THIRD_PARTY_DIR "${INK_DIR}/third_party")
+
+set(CMAKE_SKIP_BUILD_RPATH TRUE)
+set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/archives")
 
 include("${INK_SRC_DIR}/build.cmake")
+include("${INK_THIRD_PARTY_DIR}/build.cmake")

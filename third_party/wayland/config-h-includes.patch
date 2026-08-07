@@ -1,0 +1,52 @@
+diff --git a/src/connection.c b/src/connection.c
+index 6ab20ab..7c6767f 100644
+--- a/src/connection.c
++++ b/src/connection.c
+@@ -26,7 +26,7 @@
+ 
+ #define _GNU_SOURCE
+ 
+-#include "../config.h"
++#include "config.h"
+ 
+ #include <math.h>
+ #include <stdlib.h>
+diff --git a/src/scanner.c b/src/scanner.c
+index 9ca44a7..8cb63c0 100644
+--- a/src/scanner.c
++++ b/src/scanner.c
+@@ -25,6 +25,8 @@
+  * SOFTWARE.
+  */
+ 
++#include "config.h"
++
+ #include "wayland-version.h"
+ 
+ #include <stdbool.h>
+diff --git a/src/wayland-client.c b/src/wayland-client.c
+index 5b82ce6..646a1c8 100644
+--- a/src/wayland-client.c
++++ b/src/wayland-client.c
+@@ -26,7 +26,7 @@
+ 
+ #define _GNU_SOURCE
+ 
+-#include "../config.h"
++#include "config.h"
+ 
+ #include <stdlib.h>
+ #include <stdint.h>
+diff --git a/src/wayland-os.c b/src/wayland-os.c
+index 0ca00d0..caaae19 100644
+--- a/src/wayland-os.c
++++ b/src/wayland-os.c
+@@ -25,7 +25,7 @@
+ 
+ #define _GNU_SOURCE
+ 
+-#include "../config.h"
++#include "config.h"
+ 
+ #include <sys/types.h>
+ #include <sys/socket.h>
