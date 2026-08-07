@@ -1,5 +1,3 @@
-target/
-.rules_rust_analyzer/
+build/
 
-/bazel-*
-rust-project.json
+/compile_commands.json

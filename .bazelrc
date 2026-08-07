@@ -1,3 +1,0 @@
-common --incompatible_default_to_explicit_init_py
-
-build --@rules_rust//rust/toolchain/channel=nightly
